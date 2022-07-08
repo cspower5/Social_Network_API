@@ -13,14 +13,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Social_Network_
     useUnifiedTopology: true
 });
 
-mongoose.connection.on('connected', () => 
-console.log('Connected to MongoDB Endpoint')
-);
-
-mongoose.connection.on('connected', () => 
-console.log('MONGOOSE DISCONNECTED ERROR: ${err}')
-);
-
 mongoose.set('debug', true);
 
 //Routes

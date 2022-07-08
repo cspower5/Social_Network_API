@@ -41,7 +41,7 @@ const ThoughtSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      required: Date.now,
+      default: Date.now,
       get: (createdAtVal) => dateFormat(createdAtVal),
     },
     username: {
@@ -62,6 +62,5 @@ ThoughtSchema.virtual('reactionCount').get(function() {
 });
 
 const Thought = model('Thought', ThoughtSchema)
-const Reaction = model('Reactions', ReactionSchema)
 
-module.exports = (Thought, Reaction)
+module.exports = Thought;

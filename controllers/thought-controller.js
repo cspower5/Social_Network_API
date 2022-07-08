@@ -20,8 +20,9 @@ const thoughtController = {
         .catch(err => res.status(404).json(err))
     },
     postThought({ body }, res) {
-        Thought.create({thoughtText: body.thoughtText, username: body.username})
-        .then(({ _id }) => User.findOneAndUpdate({ _id: body.userId }, { $push: { thoughts: _id } }, { new: true }))
+        // Thought.create({ thoughtText: body.thoughtText, username: body.username, userId: body.userId })
+        Thought.create(body)
+        .then(({ _id }) => {return User.findOneAndUpdate({ _id: body.userId }, { $push: { thoughts: _id } }, { new: true }) })       
         .catch(err => res.status(404).json(err))
     },
     putOneThought({ params, body }, res) {
