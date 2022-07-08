@@ -1,4 +1,4 @@
-const { User, Thought } = require('../models')
+const { User, Thoughts } = require('../models')
 const user404Error = (id) => `UserID: ${id} not found!`
 const user204Info = (id) => `UserID: ${id} has been deleted!`
 

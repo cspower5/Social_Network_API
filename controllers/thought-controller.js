@@ -1,5 +1,5 @@
-const { json } = require('body-parser');
-const { Thought, Reactions } = require('../models');
+const { Thought, User } = require('../models');
+
 const thought404Error = (id) => `ThoughtID: ${id} not found!`
 const thought200Info = (id) => `ThoughtID: ${id} has been deleted!`
 const reaction200Info = (id) => `ReactionID: ${id} has been deleted!`
@@ -7,7 +7,7 @@ const reaction200Info = (id) => `ReactionID: ${id} has been deleted!`
 const thoughtController = {
     getAllThoughts(req, res) {
         Thought.find({})
-        .populate({ path: 'Reactions', select: '-_v' })
+        .populate({ path: 'Reaction', select: '-_v' })
         .select('-_v')
         .then(dbThoughts => res.json(dbThoughts))
         .catch(err  => res.status(500).json(err))

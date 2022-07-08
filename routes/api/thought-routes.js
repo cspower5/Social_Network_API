@@ -17,14 +17,18 @@ router
 
 // Get, Put, and Delete single thought
 router
-  .route('/:id')
-  .get(getOneThought)
-  .put(putOneThought)
-  .delete(deleteOneThought);
+.route('/:id')
+.get(getOneThought)
+.put(putOneThought)
+.delete(deleteOneThought);
+
+router
+.route('/:thoughtId/Reaction')
+.post(createReaction)
 
 // Add and Delete Rreactions to thoughts.
-router.route('/:thoughtId/:reactions/:reactionId')
-.post(createReaction)
+router
+.route('/:thoughtId/:Reaction/:reactionId')
 .delete(deleteReaction);
 
 module.exports = router;
