@@ -17,7 +17,7 @@ router
 
 // Get, Put, and Delete single user
 router
-  .route('/:id')
+  .route('/:userId')
   .get(getOneUser)
   .put(putOneUser)
   .delete(deleteOneUser);
